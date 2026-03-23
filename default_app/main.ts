@@ -295,5 +295,12 @@ Options:
     console.log(welcomeMessage);
   }
 
-  await loadApplicationByFile('index.html');
-}
+  // Cosmogle Nebula - The Main Entrance
+const lastPage = 'index.html'; // This opens your custom UI
+await loadApplicationByFile(lastPage);
+
+// This tells the window to be "Nebula Style" (Teal & Full Screen)
+app.on('browser-window-created', (e, window) => {
+  window.setBackgroundColor('#001a1a'); // That deep teal space color
+  window.maximize(); // Opens it big and beautiful
+});
