@@ -1,8 +1,8 @@
 {
-  "name": "@electron-ci/dev-root",
+  "name": "cosmogle-nebula",
   "version": "0.0.0-development",
-  "repository": "https://github.com/electron/electron",
-  "description": "Build cross platform desktop apps with JavaScript, HTML, and CSS",
+  "repository": "https://github.com/TyraNova24/Cosmogle-Nebula",
+  "description": "The official gateway to the Novaville galaxy.",
   "devDependencies": {
     "@azure/storage-blob": "^12.28.0",
     "@datadog/datadog-ci": "^4.1.2",
