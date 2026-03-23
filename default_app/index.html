@@ -9,6 +9,31 @@
 </head>
 
 <body>
+  <div id="stella-sidebar" style="
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 250px;
+  height: 100%;
+  background: rgba(0, 255, 255, 0.05);
+  backdrop-filter: blur(20px);
+  border-right: 1px solid rgba(0, 255, 255, 0.3);
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  z-index: 9999;
+">
+  <div style="color: #00ffff; font-weight: bold; margin-bottom: 10px;">STELLA AI</div>
+  <div id="stella-status" style="font-size: 0.8rem; color: #fff5e1; margin-bottom: 20px;">
+    Ready to explore...
+  </div>
+  
+  <div style="width: 100%; height: 150px; background: #000; border-radius: 10px; border: 1px solid #00ffff;"></div>
+  
+  <div style="margin-top: auto; color: rgba(255, 245, 225, 0.6); font-size: 0.7rem;">
+    Connected to Novaville Galaxy
+  </div>
+</div>
   <style>
   body {
     background: linear-gradient(135deg, #001a1a 0%, #003333 100%); /* Deep Teal Space */
@@ -78,4 +103,28 @@
     <a href="https://starbook.star" class="link-card">Starbook</a>
     <a href="https://cmail.star" class="link-card">Cmail</a>
   </div>
+  <script>
+  // Stella AI - Activation of the 'Eye'
+  const cameraBox = document.querySelector('[style*="height: 150px"]');
+  
+  // Create the video element
+  const video = document.createElement('video');
+  video.style.width = '100%';
+  video.style.height = '100%';
+  video.style.objectFit = 'cover';
+  video.style.borderRadius = '10px';
+  video.autoplay = true;
+
+  // Ask for permission to see the world
+  navigator.mediaDevices.getUserMedia({ video: true })
+    .then(stream => {
+      video.srcObject = stream;
+      cameraBox.appendChild(video);
+      document.getElementById('stella-status').innerText = "Stella is watching...";
+    })
+    .catch(err => {
+      console.error("Stella's eyes are closed: ", err);
+      document.getElementById('stella-status').innerText = "Camera access needed.";
+    });
+</script>
 </body>
